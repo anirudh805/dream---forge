@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dream Forge | You Dream It. We Forge It.</title>
+<title>DREAM FORGE | You Dream It. We Forge It.</title>
+
+<meta name="description" content="Dream Forge - Custom T-shirts, jerseys, jewellery, mugs, photo frames, keychains, laser engraving and 3D printing.">
 
 <style>
 
@@ -16,56 +19,44 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-}
-
-html{
     scroll-behavior:smooth;
 }
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#05060a;
-    color:#ffffff;
+    background:#070707;
+    color:#fff;
     overflow-x:hidden;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
 /* =========================
-   BACKGROUND LIGHTS
+   BACKGROUND GLOW
 ========================= */
 
 body::before{
     content:"";
     position:fixed;
-    width:650px;
-    height:650px;
-    background:radial-gradient(
-        circle,
-        rgba(0,140,255,.16),
-        transparent 65%
-    );
-    top:-250px;
-    left:-250px;
-    z-index:-2;
+    width:500px;
+    height:500px;
+    background:rgba(0,120,255,0.12);
+    filter:blur(120px);
+    top:-150px;
+    left:-150px;
+    z-index:-1;
+    pointer-events:none;
 }
 
 body::after{
     content:"";
     position:fixed;
-    width:650px;
-    height:650px;
-    background:radial-gradient(
-        circle,
-        rgba(130,40,255,.16),
-        transparent 65%
-    );
-    right:-250px;
-    bottom:-250px;
-    z-index:-2;
+    width:500px;
+    height:500px;
+    background:rgba(130,0,255,0.10);
+    filter:blur(120px);
+    bottom:-150px;
+    right:-150px;
+    z-index:-1;
+    pointer-events:none;
 }
 
 /* =========================
@@ -77,52 +68,43 @@ nav{
     top:0;
     left:0;
     width:100%;
-    padding:20px 7%;
-
+    padding:18px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    background:rgba(5,6,10,.78);
-    backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(212,175,55,.18);
-
+    background:rgba(5,5,5,0.82);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,215,0,0.12);
     z-index:1000;
 }
 
 .logo{
-    font-size:25px;
+    font-size:23px;
     font-weight:900;
-    letter-spacing:3px;
-
-    background:linear-gradient(
-        90deg,
-        #fff4a8,
-        #d4af37,
-        #fff4a8
-    );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-
-    text-shadow:0 0 20px rgba(212,175,55,.25);
+    letter-spacing:2px;
+    color:#ffd700;
 }
 
-.nav-links{
+.logo span{
+    color:#fff;
+}
+
+nav ul{
+    list-style:none;
     display:flex;
     gap:30px;
 }
 
-.nav-links a{
+nav ul li a{
+    text-decoration:none;
     color:#ddd;
     font-size:14px;
-    transition:.3s;
+    transition:0.3s;
 }
 
-.nav-links a:hover{
-    color:#d4af37;
+nav ul li a:hover{
+    color:#ffd700;
 }
 
 /* =========================
@@ -131,162 +113,90 @@ nav{
 
 .hero{
     min-height:100vh;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     text-align:center;
-
-    padding:140px 20px 80px;
-
+    padding:120px 20px 80px;
     position:relative;
-
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(212,175,55,.13),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 25% 30%,
-            rgba(0,140,255,.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 75% 70%,
-            rgba(130,40,255,.14),
-            transparent 30%
-        );
 }
 
 .hero-content{
-    max-width:1000px;
+    max-width:900px;
 }
 
 .badge{
     display:inline-block;
-
-    padding:9px 18px;
-
-    border:1px solid rgba(212,175,55,.5);
+    padding:8px 18px;
+    border:1px solid rgba(255,215,0,0.5);
     border-radius:30px;
-
-    color:#d4af37;
-
+    color:#ffd700;
     font-size:13px;
-    letter-spacing:2px;
-
     margin-bottom:25px;
-
-    background:rgba(212,175,55,.05);
+    background:rgba(255,215,0,0.05);
 }
 
 .hero h1{
-    font-size:clamp(55px,10vw,120px);
-
+    font-size:clamp(50px,9vw,100px);
     font-weight:900;
-
-    letter-spacing:8px;
-
-    background:linear-gradient(
-        120deg,
-        #ffffff,
-        #d4af37,
-        #ffffff,
-        #b8860b
-    );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-
-    text-shadow:
-        0 0 25px rgba(212,175,55,.2);
+    line-height:.95;
+    letter-spacing:-4px;
 }
 
-.hero h2{
-    margin-top:15px;
-
-    font-size:clamp(20px,3vw,30px);
-
-    font-weight:400;
-
-    color:#eeeeee;
+.hero h1 span{
+    color:#ffd700;
+    text-shadow:
+        0 0 20px rgba(255,215,0,0.3),
+        0 0 60px rgba(0,120,255,0.15);
 }
 
 .hero p{
-    max-width:700px;
-
-    margin:25px auto;
-
+    margin:28px auto;
+    max-width:650px;
     color:#aaa;
+    font-size:18px;
+    line-height:1.7;
+}
 
-    line-height:1.8;
-
-    font-size:17px;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 /* =========================
    BUTTONS
 ========================= */
 
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:30px;
-}
-
-.button{
-    display:inline-block;
-
-    padding:15px 30px;
-
-    border-radius:30px;
-
+.btn{
+    padding:14px 25px;
+    border-radius:10px;
+    text-decoration:none;
     font-weight:bold;
-
     transition:.3s;
+    display:inline-block;
 }
 
-.primary{
-    background:linear-gradient(
-        135deg,
-        #fff1a6,
-        #d4af37,
-        #a67c00
-    );
-
-    color:#050505;
-
-    box-shadow:
-        0 0 25px rgba(212,175,55,.25);
+.btn-primary{
+    background:#ffd700;
+    color:#080808;
 }
 
-.primary:hover{
-    transform:translateY(-4px);
-
-    box-shadow:
-        0 0 40px rgba(212,175,55,.5);
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(255,215,0,0.25);
 }
 
-.secondary{
-    border:1px solid #444;
-
-    color:#ddd;
-
-    background:rgba(255,255,255,.03);
+.btn-secondary{
+    border:1px solid #333;
+    color:#fff;
+    background:#111;
 }
 
-.secondary:hover{
-    border-color:#008cff;
-
-    color:#008cff;
-
-    box-shadow:
-        0 0 20px rgba(0,140,255,.15);
+.btn-secondary:hover{
+    border-color:#ffd700;
+    color:#ffd700;
 }
 
 /* =========================
@@ -294,38 +204,25 @@ nav{
 ========================= */
 
 section{
-    padding:100px 7%;
+    padding:90px 7%;
 }
 
 .section-title{
     text-align:center;
-
-    font-size:42px;
-
-    margin-bottom:15px;
-
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #d4af37,
-        #fff
-    );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    margin-bottom:50px;
 }
 
-.section-subtitle{
-    text-align:center;
+.section-title h2{
+    font-size:45px;
+    margin-bottom:12px;
+}
 
+.section-title h2 span{
+    color:#ffd700;
+}
+
+.section-title p{
     color:#888;
-
-    max-width:650px;
-
-    margin:0 auto 55px;
-
-    line-height:1.7;
 }
 
 /* =========================
@@ -334,257 +231,84 @@ section{
 
 .products{
     display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(260px,1fr));
-
-    gap:28px;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
 }
 
-.card{
-    position:relative;
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.015)
-        );
-
-    border:1px solid rgba(255,255,255,.09);
-
-    backdrop-filter:blur(12px);
-
-    overflow:hidden;
-
-    transition:.4s;
-}
-
-.card::before{
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    background:radial-gradient(
-        circle,
-        rgba(0,140,255,.15),
-        transparent 70%
+.product-card{
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.07),
+        rgba(255,255,255,0.025)
     );
-
-    top:-80px;
-    right:-80px;
-
-    z-index:0;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.35s;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 }
 
-.card:hover{
-    transform:translateY(-10px);
-
-    border-color:#d4af37;
-
+.product-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,215,0,0.45);
     box-shadow:
-        0 20px 50px rgba(0,0,0,.55),
-        0 0 30px rgba(212,175,55,.1);
+        0 15px 45px rgba(0,0,0,0.5),
+        0 0 25px rgba(0,100,255,0.08);
 }
-
-/* =========================
-   PRODUCT IMAGE
-========================= */
 
 .image-wrapper{
-    position:relative;
-
     width:100%;
-
-    height:250px;
-
+    height:240px;
     overflow:hidden;
-
     background:#111;
 }
 
 .product-image{
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
-    transition:
-        transform .6s ease,
-        filter .6s ease;
+    transition:.5s;
 }
 
-.card:hover .product-image{
-    transform:scale(1.08);
-
-    filter:brightness(1.08);
+.product-card:hover .product-image{
+    transform:scale(1.07);
 }
-
-.image-wrapper::after{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(5,6,10,.75),
-            transparent 55%
-        );
-
-    pointer-events:none;
-}
-
-/* =========================
-   PRODUCT INFO
-========================= */
 
 .product-info{
-    padding:25px;
-
-    position:relative;
-
-    z-index:2;
+    padding:22px;
 }
 
 .product-tag{
-    display:inline-block;
-
-    color:#008cff;
-
-    font-size:10px;
-
+    color:#ffd700;
+    font-size:11px;
     font-weight:bold;
-
-    letter-spacing:2px;
-
-    margin-bottom:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-.card h3{
-    color:#fff;
-
-    margin-bottom:12px;
-
+.product-info h3{
+    margin:8px 0;
     font-size:21px;
 }
 
-.card p{
+.product-info p{
     color:#999;
-
-    line-height:1.6;
-
     font-size:14px;
-
-    margin-bottom:20px;
+    line-height:1.6;
+    margin-bottom:18px;
 }
 
 .product-link{
-    display:inline-block;
-
-    color:#d4af37;
-
+    color:#fff;
+    text-decoration:none;
     font-size:14px;
-
     font-weight:bold;
-
-    transition:.3s;
 }
 
 .product-link:hover{
-    color:#fff;
-
-    transform:translateX(5px);
-}
-
-/* =========================
-   FEATURE SECTION
-========================= */
-
-.feature{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-    align-items:stretch;
-}
-
-.feature-box{
-    min-height:330px;
-
-    border-radius:25px;
-
-    padding:45px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(212,175,55,.1),
-            rgba(0,140,255,.07),
-            rgba(130,40,255,.07)
-        );
-
-    border:1px solid rgba(212,175,55,.2);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.feature-box::before{
-    content:"";
-
-    position:absolute;
-
-    width:300px;
-    height:300px;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-        circle,
-        rgba(0,140,255,.1),
-        transparent 70%
-    );
-
-    right:-150px;
-    bottom:-150px;
-}
-
-.feature-box h3{
-    font-size:35px;
-
-    margin-bottom:20px;
-
-    color:#d4af37;
-
-    position:relative;
-}
-
-.feature-box p{
-    color:#aaa;
-
-    line-height:1.8;
-
-    position:relative;
+    color:#ffd700;
 }
 
 /* =========================
@@ -593,96 +317,83 @@ section{
 
 .steps{
     display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(200px,1fr));
-
+    grid-template-columns:repeat(3,1fr);
     gap:25px;
+    max-width:1000px;
+    margin:auto;
 }
 
 .step{
     text-align:center;
-
     padding:30px;
+    border:1px solid #222;
+    border-radius:18px;
+    background:#0d0d0d;
 }
 
-.number{
-    width:60px;
-    height:60px;
-
-    margin:0 auto 20px;
-
+.step-number{
+    width:50px;
+    height:50px;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
+    margin:0 auto 20px;
     border-radius:50%;
-
-    font-weight:bold;
-
+    background:#ffd700;
+    color:#000;
+    font-weight:900;
     font-size:20px;
-
-    color:#050505;
-
-    background:linear-gradient(
-        135deg,
-        #fff1a6,
-        #d4af37
-    );
-
-    box-shadow:
-        0 0 25px rgba(212,175,55,.15);
 }
 
 .step h3{
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .step p{
     color:#888;
-
     line-height:1.6;
+    font-size:14px;
 }
 
 /* =========================
-   CUSTOM ORDER
+   CTA
 ========================= */
 
-.order{
+.cta{
     text-align:center;
+    max-width:1000px;
+    margin:50px auto;
+    padding:70px 30px;
+    border-radius:25px;
 
     background:
         radial-gradient(
-            circle at center,
-            rgba(0,140,255,.12),
-            transparent 35%
+            circle at top right,
+            rgba(0,110,255,0.15),
+            transparent 40%
         ),
         radial-gradient(
-            circle at 70%,
-            rgba(212,175,55,.1),
-            transparent 30%
-        );
+            circle at bottom left,
+            rgba(150,0,255,0.13),
+            transparent 40%
+        ),
+        #0d0d0d;
 
-    border-top:1px solid rgba(255,255,255,.06);
-
-    border-bottom:1px solid rgba(255,255,255,.06);
+    border:1px solid rgba(255,215,0,0.18);
 }
 
-.order h2{
-    font-size:45px;
-
+.cta h2{
+    font-size:42px;
     margin-bottom:15px;
 }
 
-.order p{
+.cta h2 span{
+    color:#ffd700;
+}
+
+.cta p{
     color:#999;
-
-    max-width:600px;
-
-    margin:auto;
-
-    line-height:1.7;
+    margin-bottom:25px;
 }
 
 /* =========================
@@ -690,17 +401,26 @@ section{
 ========================= */
 
 footer{
-    padding:35px 7%;
-
+    padding:40px 7%;
+    border-top:1px solid #222;
     text-align:center;
-
     color:#666;
-
-    border-top:1px solid rgba(255,255,255,.06);
+    font-size:13px;
 }
 
 footer strong{
-    color:#d4af37;
+    color:#ffd700;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1000px){
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 
 /* =========================
@@ -710,52 +430,51 @@ footer strong{
 @media(max-width:700px){
 
     nav{
-        padding:18px 5%;
+        padding:15px 5%;
     }
 
-    .nav-links{
+    nav ul{
         display:none;
     }
 
-    .logo{
-        font-size:20px;
+    section{
+        padding:70px 5%;
     }
 
     .hero h1{
-        letter-spacing:4px;
+        font-size:58px;
     }
 
-    section{
-        padding:75px 5%;
+    .hero p{
+        font-size:16px;
     }
 
-    .section-title{
-        font-size:34px;
+    .products{
+        grid-template-columns:1fr;
     }
 
-    .order h2{
-        font-size:34px;
+    .steps{
+        grid-template-columns:1fr;
     }
 
-    .feature-box{
-        padding:30px;
+    .section-title h2{
+        font-size:35px;
     }
 
-    .feature-box h3{
-        font-size:29px;
+    .cta h2{
+        font-size:32px;
     }
 
     .image-wrapper{
-        height:220px;
+        height:260px;
     }
-
 }
 
 </style>
+
 </head>
 
 <body>
-
 
 <!-- =========================
      NAVIGATION
@@ -763,32 +482,20 @@ footer strong{
 
 <nav>
 
-    <div class="logo">
-        DREAM FORGE
-    </div>
+```
+<div class="logo">
+    DREAM <span>FORGE</span>
+</div>
 
-    <div class="nav-links">
-
-        <a href="#home">
-            Home
-        </a>
-
-        <a href="#products">
-            Products
-        </a>
-
-        <a href="#how">
-            How It Works
-        </a>
-
-        <a href="#order">
-            Custom Order
-        </a>
-
-    </div>
+<ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+```
 
 </nav>
-
 
 <!-- =========================
      HERO
@@ -796,50 +503,44 @@ footer strong{
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+```
+<div class="hero-content">
 
-        <div class="badge">
-            CUSTOM • CREATIVE • MADE FOR YOU
-        </div>
+    <div class="badge">
+        CUSTOM • CREATIVE • MADE FOR YOU
+    </div>
 
-        <h1>
-            DREAM FORGE
-        </h1>
+    <h1>
+        DREAM <span>FORGE</span>
+    </h1>
 
-        <h2>
-            You Dream It. We Forge It.
-        </h2>
+    <p>
+        You dream it. We forge it.
+        From custom clothing and jewellery to personalized gifts,
+        laser engraving and 3D printing — we turn your ideas into real products.
+    </p>
 
-        <p>
-            Your imagination shouldn't stay an idea.
-            We transform your designs, memories and ideas
-            into real, custom-made products.
-        </p>
+    <div class="hero-buttons">
 
-        <div class="buttons">
+        <a href="#products" class="btn btn-primary">
+            Explore Products
+        </a>
 
-            <a
-                href="#products"
-                class="button primary">
-
-                Explore Products
-
-            </a>
-
-            <a
-                href="#order"
-                class="button secondary">
-
-                Start Your Idea
-
-            </a>
-
-        </div>
+        <a
+            href="https://wa.me/919999999999?text=Hi%20Dream%20Forge!%20I%20have%20an%20idea%20for%20a%20custom%20product."
+            class="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Get a Quote
+        </a>
 
     </div>
 
-</section>
+</div>
+```
 
+</section>
 
 <!-- =========================
      PRODUCTS
@@ -847,425 +548,331 @@ footer strong{
 
 <section id="products">
 
-    <h2 class="section-title">
-        What We Create
+```
+<div class="section-title">
+
+    <h2>
+        What We <span>Forge</span>
     </h2>
 
-    <p class="section-subtitle">
-        From everyday products to completely unique creations,
-        Dream Forge turns your ideas into something real.
+    <p>
+        Your idea. Your design. Your product.
     </p>
 
+</div>
 
-    <div class="products">
+
+<div class="products">
 
 
-        <!-- =====================
-             T-SHIRTS
-        ====================== -->
+    <!-- T-SHIRTS -->
 
-        <div class="card">
+    <div class="product-card">
 
-            <div class="image-wrapper">
+        <div class="image-wrapper">
 
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85"
-                    alt="Custom T-Shirt">
-
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    APPAREL
-                </div>
-
-                <h3>
-                    Custom T-Shirts
-                </h3>
-
-                <p>
-                    Create your own designs, logos,
-                    graphics and personalized clothing.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85"
+                alt="Custom T-Shirt"
+                loading="lazy"
+            >
 
         </div>
 
+        <div class="product-info">
 
-        <!-- =====================
-             JERSEYS
-        ====================== -->
-
-        <div class="card">
-
-            <div class="image-wrapper">
-
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
-                    alt="Custom Football Jersey">
-
+            <div class="product-tag">
+                APPAREL
             </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    SPORTS
-                </div>
-
-                <h3>
-                    Custom Jerseys
-                </h3>
-
-                <p>
-                    Team jerseys designed with your
-                    colours, name, number and style.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             JEWELLERY
-        ====================== -->
-
-        <div class="card">
-
-            <div class="image-wrapper">
-
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1000&q=85"
-                    alt="Custom Jewellery">
-
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    PREMIUM
-                </div>
-
-                <h3>
-                    Custom Jewellery
-                </h3>
-
-                <p>
-                    Unique pieces created around
-                    your personal ideas and designs.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             MUGS
-        ====================== -->
-
-        <div class="card">
-
-            <div class="image-wrapper">
-
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?auto=format&fit=crop&w=1000&q=85"
-                    alt="Custom Mug">
-
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    GIFTS
-                </div>
-
-                <h3>
-                    Custom Mugs
-                </h3>
-
-                <p>
-                    Personalized mugs for gifts,
-                    memories, teams and businesses.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             PHOTO FRAMES
-        ====================== -->
-
-        <div class="card">
-
-            <div class="image-wrapper">
-
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=1000&q=85"
-                    alt="Personalized Photo Frame">
-
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    MEMORIES
-                </div>
-
-                <h3>
-                    Photo Frames
-                </h3>
-
-                <p>
-                    Turn your favourite memories
-                    into personalized keepsakes.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             KEYCHAINS
-        ====================== -->
-
-        <div class="card">
-
-            <div class="image-wrapper">
-
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1603899122634-f086ca5f5ddd?auto=format&fit=crop&w=1000&q=85"
-                    alt="Custom Keychain">
-
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    CUSTOM
-                </div>
-
-                <h3>
-                    Keychains
-                </h3>
-
-                <p>
-                    Names, logos, shapes and designs
-                    turned into custom keychains.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             LASER ENGRAVING
-        ====================== -->
-
-        <div class="card">
-
-            <div class="image-wrapper">
-
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=85"
-                    alt="Laser Engraving">
-
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    PRECISION
-                </div>
-
-                <h3>
-                    Laser Engraving
-                </h3>
-
-                <p>
-                    Precision engraving for names,
-                    logos, gifts and special designs.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- =====================
-             3D PRINTING
-        ====================== -->
-
-        <div class="card">
-
-            <div class="image-wrapper">
-
-                <img
-                    class="product-image"
-                    src="https://images.unsplash.com/photo-1631546644768-9f7f9f6e5c8c?auto=format&fit=crop&w=1000&q=85"
-                    alt="3D Printing">
-
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-tag">
-                    INNOVATION
-                </div>
-
-                <h3>
-                    3D Printing
-                </h3>
-
-                <p>
-                    Turn digital ideas and models
-                    into physical 3D creations.
-                </p>
-
-                <a
-                    href="#order"
-                    class="product-link">
-
-                    Customize →
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FEATURE
-========================= -->
-
-<section>
-
-    <div class="feature">
-
-
-        <div class="feature-box">
 
             <h3>
-                Your Idea.
-                Your Design.
-                Your Product.
+                Custom T-Shirts
             </h3>
 
             <p>
-                You don't have to choose from boring
-                ready-made products. Tell us what you
-                imagine and we'll work towards turning
-                that idea into reality.
+                Your design, logo, quote or artwork printed on your own T-shirt.
             </p>
 
-            <br>
-
-            <a
-                href="#order"
-                class="button primary">
-
-                Create Something
-
+            <a href="#contact" class="product-link">
+                Customize →
             </a>
 
         </div>
 
+    </div>
 
-        <div class="feature-box">
 
-            <h3>
-                Built Different.
-            </h3>
+    <!-- JERSEYS -->
 
-            <p>
-                Dream Forge combines creativity,
-                modern manufacturing and personalization
-                to create products that actually feel
-                like yours.
-            </p>
+    <div class="product-card">
+
+        <div class="image-wrapper">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1000&q=85"
+                alt="Custom Sports Jersey"
+                loading="lazy"
+            >
 
         </div>
 
+        <div class="product-info">
+
+            <div class="product-tag">
+                SPORTS
+            </div>
+
+            <h3>
+                Custom Jerseys
+            </h3>
+
+            <p>
+                Create team jerseys with your name, number, logo and colours.
+            </p>
+
+            <a href="#contact" class="product-link">
+                Customize →
+            </a>
+
+        </div>
 
     </div>
 
-</section>
 
+    <!-- JEWELLERY -->
+
+    <div class="product-card">
+
+        <div class="image-wrapper">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1000&q=85"
+                alt="Custom Jewellery"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-tag">
+                ACCESSORIES
+            </div>
+
+            <h3>
+                Custom Jewellery
+            </h3>
+
+            <p>
+                Personalized jewellery designed around your idea.
+            </p>
+
+            <a href="#contact" class="product-link">
+                Customize →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- MUGS -->
+
+    <div class="product-card">
+
+        <div class="image-wrapper">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?auto=format&fit=crop&w=1000&q=85"
+                alt="Custom Mugs"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-tag">
+                GIFTS
+            </div>
+
+            <h3>
+                Custom Mugs
+            </h3>
+
+            <p>
+                Add photos, names, logos, quotes or your own artwork.
+            </p>
+
+            <a href="#contact" class="product-link">
+                Customize →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO FRAMES -->
+
+    <div class="product-card">
+
+        <div class="image-wrapper">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=1000&q=85"
+                alt="Photo Frame"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-tag">
+                MEMORIES
+            </div>
+
+            <h3>
+                Photo Frames
+            </h3>
+
+            <p>
+                Turn your favourite memories into beautiful personalized frames.
+            </p>
+
+            <a href="#contact" class="product-link">
+                Customize →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- KEYCHAINS -->
+
+    <div class="product-card">
+
+        <div class="image-wrapper">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1603899122634-f086ca5f5ddd?auto=format&fit=crop&w=1000&q=85"
+                alt="Custom Keychains"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-tag">
+                PERSONALIZED
+            </div>
+
+            <h3>
+                Custom Keychains
+            </h3>
+
+            <p>
+                Names, messages, logos and designs turned into unique keychains.
+            </p>
+
+            <a href="#contact" class="product-link">
+                Customize →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- LASER ENGRAVING -->
+
+    <div class="product-card">
+
+        <div class="image-wrapper">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=85"
+                alt="Laser Engraving"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-tag">
+                PRECISION
+            </div>
+
+            <h3>
+                Laser Engraving
+            </h3>
+
+            <p>
+                Detailed engraving on wood, acrylic and other suitable materials.
+            </p>
+
+            <a href="#contact" class="product-link">
+                Customize →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- 3D PRINTING -->
+
+    <div class="product-card">
+
+        <div class="image-wrapper">
+
+            <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1631546644768-9f7f9f6e5c8c?auto=format&fit=crop&w=1000&q=85"
+                alt="3D Printing"
+                loading="lazy"
+            >
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-tag">
+                MAKER LAB
+            </div>
+
+            <h3>
+                3D Printing
+            </h3>
+
+            <p>
+                Bring digital ideas into the real world with custom 3D printed products.
+            </p>
+
+            <a href="#contact" class="product-link">
+                Customize →
+            </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+```
+
+</section>
 
 <!-- =========================
      HOW IT WORKS
@@ -1273,122 +880,108 @@ footer strong{
 
 <section id="how">
 
-    <h2 class="section-title">
-        How It Works
-    </h2>
-
-    <p class="section-subtitle">
-        From imagination to reality in four simple steps.
-    </p>
-
-
-    <div class="steps">
-
-
-        <div class="step">
-
-            <div class="number">
-                01
-            </div>
-
-            <h3>
-                Share Your Idea
-            </h3>
-
-            <p>
-                Tell us what you want to create.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="number">
-                02
-            </div>
-
-            <h3>
-                We Design
-            </h3>
-
-            <p>
-                We turn your concept into a design.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="number">
-                03
-            </div>
-
-            <h3>
-                We Forge
-            </h3>
-
-            <p>
-                Your product is created and customized.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="number">
-                04
-            </div>
-
-            <h3>
-                You Receive
-            </h3>
-
-            <p>
-                Your idea becomes something real.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CUSTOM ORDER
-========================= -->
-
-<section class="order" id="order">
+```
+<div class="section-title">
 
     <h2>
-        Have an Idea?
+        How It <span>Works</span>
     </h2>
 
     <p>
-        Don't just imagine it.
-        Tell Dream Forge what you're thinking
-        and let's turn it into something real.
+        From an idea to something you can actually hold.
     </p>
 
-    <div class="buttons">
+</div>
 
-        <a
-            href="https://wa.me/919999999999?text=Hi%20Dream%20Forge!%20I%20have%20an%20idea%20for%20a%20custom%20product."
-            target="_blank"
-            class="button primary">
 
-            💬 Get a Quote on WhatsApp
+<div class="steps">
 
-        </a>
+    <div class="step">
+
+        <div class="step-number">
+            1
+        </div>
+
+        <h3>
+            Tell Us Your Idea
+        </h3>
+
+        <p>
+            Send us your design, photo, sketch or simply explain what you want.
+        </p>
 
     </div>
 
+
+    <div class="step">
+
+        <div class="step-number">
+            2
+        </div>
+
+        <h3>
+            We Forge It
+        </h3>
+
+        <p>
+            We create your customized product based on your requirements.
+        </p>
+
+    </div>
+
+
+    <div class="step">
+
+        <div class="step-number">
+            3
+        </div>
+
+        <h3>
+            Get Your Product
+        </h3>
+
+        <p>
+            Your custom creation is ready to become something real.
+        </p>
+
+    </div>
+
+</div>
+```
+
 </section>
 
+<!-- =========================
+     CONTACT / CTA
+========================= -->
+
+<section id="contact">
+
+```
+<div class="cta">
+
+    <h2>
+        Have an <span>Idea?</span>
+    </h2>
+
+    <p>
+        Don't worry if you don't have a finished design.
+        Tell us what you're imagining and we'll help turn it into reality.
+    </p>
+
+    <a
+        href="https://wa.me/919999999999?text=Hi%20Dream%20Forge!%20I%20have%20an%20idea%20for%20a%20custom%20product."
+        class="btn btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        💬 Talk to Dream Forge
+    </a>
+
+</div>
+```
+
+</section>
 
 <!-- =========================
      FOOTER
@@ -1396,18 +989,14 @@ footer strong{
 
 <footer>
 
-    © 2026
-
-    <strong>
-        DREAM FORGE
-    </strong>
-
-    <br><br>
-
-    You Dream It. We Forge It.
+```
+<p>
+    © 2026 <strong>DREAM FORGE</strong>
+    — You Dream It. We Forge It.
+</p>
+```
 
 </footer>
-
 
 </body>
 </html>
