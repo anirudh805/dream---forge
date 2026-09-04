@@ -1,429 +1,1014 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dream Forge | You Dream It. We Forge It.</title>
+<title>Dream Forge | You Dream It. We Forge It.</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #050505;
-            color: white;
-        }
+/* =========================
+   RESET
+========================= */
 
-        /* NAVBAR */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(5,5,5,0.9);
-            border-bottom: 1px solid #2b220d;
-            z-index: 1000;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #d4af37;
-            letter-spacing: 2px;
-        }
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05060a;
+    color:#ffffff;
+    overflow-x:hidden;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            transition: 0.3s;
-        }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-        nav a:hover {
-            color: #d4af37;
-        }
+/* =========================
+   BACKGROUND LIGHTS
+========================= */
 
-        /* HERO */
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,
+        rgba(0,140,255,.15),
+        transparent 65%);
+    top:-200px;
+    left:-200px;
+    z-index:-2;
+}
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 20px 60px;
-            background:
-                radial-gradient(circle at center, #33270b 0%, #0b0b0b 35%, #050505 70%);
-        }
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle,
+        rgba(130,40,255,.12),
+        transparent 65%);
+    right:-250px;
+    bottom:-200px;
+    z-index:-2;
+}
 
-        .hero-content {
-            max-width: 900px;
-        }
+/* =========================
+   NAVBAR
+========================= */
 
-        .hero h1 {
-            font-size: clamp(55px, 10vw, 110px);
-            letter-spacing: 8px;
-            color: #d4af37;
-            text-shadow:
-                0 0 10px rgba(212,175,55,0.5),
-                0 0 40px rgba(212,175,55,0.25);
-        }
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-        .hero h2 {
-            font-size: 25px;
-            margin: 20px 0;
-            font-weight: normal;
-        }
+    background:rgba(5,6,10,.75);
+    backdrop-filter:blur(15px);
 
-        .hero p {
-            color: #bbb;
-            font-size: 18px;
-            line-height: 1.7;
-            max-width: 650px;
-            margin: auto;
-        }
+    border-bottom:1px solid rgba(212,175,55,.18);
 
-        .button {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 15px 35px;
-            background: #d4af37;
-            color: #050505;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: 0.3s;
-        }
+    z-index:1000;
+}
 
-        .button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(212,175,55,0.6);
-        }
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:3px;
 
-        /* SECTIONS */
+    background:linear-gradient(
+        90deg,
+        #fff4a8,
+        #d4af37,
+        #fff4a8
+    );
 
-        section {
-            padding: 90px 7%;
-        }
+    -webkit-background-clip:text;
+    color:transparent;
 
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            margin-bottom: 50px;
-            color: #d4af37;
-        }
+    text-shadow:0 0 20px rgba(212,175,55,.25);
+}
 
-        /* PRODUCTS */
+.nav-links{
+    display:flex;
+    gap:30px;
+}
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
+.nav-links a{
+    color:#ddd;
+    font-size:14px;
+    transition:.3s;
+}
 
-        .card {
-            background: linear-gradient(145deg, #151515, #090909);
-            border: 1px solid #3b3015;
-            padding: 35px 25px;
-            border-radius: 18px;
-            text-align: center;
-            transition: 0.3s;
-        }
+.nav-links a:hover{
+    color:#d4af37;
+}
 
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: #d4af37;
-            box-shadow: 0 10px 35px rgba(212,175,55,0.15);
-        }
+/* =========================
+   HERO
+========================= */
 
-        .card-icon {
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
 
-        .card h3 {
-            color: #d4af37;
-            margin-bottom: 12px;
-        }
+    padding:140px 20px 80px;
 
-        .card p {
-            color: #aaa;
-            line-height: 1.6;
-        }
+    position:relative;
 
-        /* HOW IT WORKS */
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(212,175,55,.13),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 25% 30%,
+            rgba(0,140,255,.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 75% 70%,
+            rgba(130,40,255,.12),
+            transparent 30%
+        );
+}
 
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            text-align: center;
-        }
+.hero-content{
+    max-width:1000px;
+}
 
-        .step {
-            padding: 30px;
-        }
+.badge{
+    display:inline-block;
 
-        .number {
-            width: 55px;
-            height: 55px;
-            margin: 0 auto 20px;
-            border: 2px solid #d4af37;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af37;
-            font-weight: bold;
-            font-size: 20px;
-        }
+    padding:9px 18px;
 
-        .step h3 {
-            margin-bottom: 10px;
-        }
+    border:1px solid rgba(212,175,55,.5);
+    border-radius:30px;
 
-        .step p {
-            color: #aaa;
-        }
+    color:#d4af37;
 
-        /* CTA */
+    font-size:13px;
+    letter-spacing:2px;
 
-        .cta {
-            text-align: center;
-            background: radial-gradient(circle, #30250c, #080808 65%);
-            border-top: 1px solid #3b3015;
-            border-bottom: 1px solid #3b3015;
-        }
+    margin-bottom:25px;
 
-        .cta h2 {
-            font-size: 45px;
-            color: #d4af37;
-            margin-bottom: 15px;
-        }
+    background:rgba(212,175,55,.05);
+}
 
-        .cta p {
-            color: #bbb;
-        }
+.hero h1{
+    font-size:clamp(55px,10vw,120px);
 
-        /* FOOTER */
+    font-weight:900;
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #777;
-        }
+    letter-spacing:8px;
 
-        footer span {
-            color: #d4af37;
-        }
+    background:linear-gradient(
+        120deg,
+        #ffffff,
+        #d4af37,
+        #ffffff,
+        #b8860b
+    );
 
-        /* MOBILE */
+    -webkit-background-clip:text;
+    color:transparent;
 
-        @media(max-width: 700px) {
+    text-shadow:
+        0 0 25px rgba(212,175,55,.2);
+}
 
-            nav {
-                padding: 18px 5%;
-            }
+.hero h2{
+    margin-top:15px;
 
-            nav .links {
-                display: none;
-            }
+    font-size:clamp(20px,3vw,30px);
 
-            .hero h1 {
-                letter-spacing: 4px;
-            }
+    font-weight:400;
 
-            .section-title {
-                font-size: 32px;
-            }
+    color:#eeeeee;
+}
 
-            .cta h2 {
-                font-size: 32px;
-            }
-        }
-    </style>
+.hero p{
+    max-width:700px;
+
+    margin:25px auto;
+
+    color:#aaa;
+
+    line-height:1.8;
+
+    font-size:17px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.button{
+    display:inline-block;
+
+    padding:15px 30px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.primary{
+    background:linear-gradient(
+        135deg,
+        #fff1a6,
+        #d4af37,
+        #a67c00
+    );
+
+    color:#050505;
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,.25);
+}
+
+.primary:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 40px rgba(212,175,55,.5);
+}
+
+.secondary{
+    border:1px solid #444;
+
+    color:#ddd;
+
+    background:rgba(255,255,255,.03);
+}
+
+.secondary:hover{
+    border-color:#008cff;
+    color:#008cff;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #d4af37,
+        #fff
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.section-subtitle{
+    text-align:center;
+
+    color:#888;
+
+    max-width:650px;
+
+    margin:0 auto 55px;
+
+    line-height:1.7;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+}
+
+.card{
+    position:relative;
+
+    padding:35px 25px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid rgba(255,255,255,.09);
+
+    backdrop-filter:blur(12px);
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    background:radial-gradient(
+        circle,
+        rgba(0,140,255,.12),
+        transparent 70%
+    );
+
+    top:-70px;
+    right:-70px;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+
+    border-color:#d4af37;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.5),
+        0 0 25px rgba(212,175,55,.08);
+}
+
+.icon{
+    font-size:45px;
+
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#fff;
+
+    margin-bottom:12px;
+
+    font-size:21px;
+}
+
+.card p{
+    color:#999;
+
+    line-height:1.6;
+
+    font-size:14px;
+}
+
+/* =========================
+   FEATURE SECTION
+========================= */
+
+.feature{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    align-items:center;
+}
+
+.feature-box{
+    min-height:300px;
+
+    border-radius:25px;
+
+    padding:45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.1),
+            rgba(0,140,255,.07),
+            rgba(130,40,255,.07)
+        );
+
+    border:1px solid rgba(212,175,55,.2);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+.feature-box h3{
+    font-size:35px;
+
+    margin-bottom:20px;
+
+    color:#d4af37;
+}
+
+.feature-box p{
+    color:#aaa;
+
+    line-height:1.8;
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.steps{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(200px,1fr));
+
+    gap:25px;
+}
+
+.step{
+    text-align:center;
+
+    padding:30px;
+}
+
+.number{
+    width:60px;
+    height:60px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    font-weight:bold;
+
+    font-size:20px;
+
+    color:#050505;
+
+    background:linear-gradient(
+        135deg,
+        #fff1a6,
+        #d4af37
+    );
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,.15);
+}
+
+.step h3{
+    margin-bottom:12px;
+}
+
+.step p{
+    color:#888;
+
+    line-height:1.6;
+}
+
+/* =========================
+   CUSTOM ORDER
+========================= */
+
+.order{
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,140,255,.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 70%,
+            rgba(212,175,55,.1),
+            transparent 30%
+        );
+
+    border-top:1px solid rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.order h2{
+    font-size:45px;
+
+    margin-bottom:15px;
+}
+
+.order p{
+    color:#999;
+
+    max-width:600px;
+
+    margin:auto;
+
+    line-height:1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:35px 7%;
+
+    text-align:center;
+
+    color:#666;
+
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+footer strong{
+    color:#d4af37;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    nav{
+        padding:18px 5%;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        letter-spacing:4px;
+    }
+
+    section{
+        padding:75px 5%;
+    }
+
+    .section-title{
+        font-size:34px;
+    }
+
+    .order h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <div class="logo">DREAM FORGE</div>
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-        <div class="links">
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#how">How It Works</a>
-            <a href="#contact">Contact</a>
+<nav>
+
+    <div class="logo">
+        DREAM FORGE
+    </div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#how">How It Works</a>
+        <a href="#order">Custom Order</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            CUSTOM • CREATIVE • MADE FOR YOU
         </div>
-    </nav>
 
-    <!-- HERO -->
+        <h1>
+            DREAM FORGE
+        </h1>
 
-    <section class="hero" id="home">
+        <h2>
+            You Dream It. We Forge It.
+        </h2>
 
-        <div class="hero-content">
+        <p>
+            Your imagination shouldn't stay an idea.
+            We transform your designs, memories and ideas
+            into real, custom-made products.
+        </p>
 
-            <h1>DREAM FORGE</h1>
+        <div class="buttons">
 
-            <h2>You Dream It. We Forge It.</h2>
+            <a href="#products"
+               class="button primary">
+                Explore Products
+            </a>
 
-            <p>
-                Turn your ideas into real products.
-                From custom clothing and jewellery to 3D printing,
-                laser engraving and personalized gifts.
-            </p>
-
-            <a href="#products" class="button">
-                Explore What We Make
+            <a href="#order"
+               class="button secondary">
+                Start Your Idea
             </a>
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- PRODUCTS -->
+</section>
 
-    <section id="products">
 
-        <h2 class="section-title">What We Make</h2>
+<!-- =========================
+     PRODUCTS
+========================= -->
 
-        <div class="products">
+<section id="products">
 
-            <div class="card">
-                <div class="card-icon">👕</div>
-                <h3>Custom Clothing</h3>
-                <p>
-                    Custom T-shirts, jerseys and clothing designed around your idea.
-                </p>
-            </div>
+    <h2 class="section-title">
+        What We Create
+    </h2>
 
-            <div class="card">
-                <div class="card-icon">💎</div>
-                <h3>Custom Jewellery</h3>
-                <p>
-                    Unique jewellery created specially for you.
-                </p>
-            </div>
+    <p class="section-subtitle">
+        From everyday products to completely unique creations,
+        Dream Forge turns your ideas into something real.
+    </p>
 
-            <div class="card">
-                <div class="card-icon">☕</div>
-                <h3>Custom Mugs</h3>
-                <p>
-                    Personalized mugs for yourself, friends and special occasions.
-                </p>
-            </div>
 
-            <div class="card">
-                <div class="card-icon">🖼️</div>
-                <h3>Photo Frames</h3>
-                <p>
-                    Turn your favourite memories into beautiful personalized frames.
-                </p>
-            </div>
+    <div class="products">
 
-            <div class="card">
-                <div class="card-icon">🔑</div>
-                <h3>Keychains</h3>
-                <p>
-                    Custom keychains made with your name, logo or design.
-                </p>
-            </div>
+        <div class="card">
 
-            <div class="card">
-                <div class="card-icon">🔥</div>
-                <h3>Laser Engraving</h3>
-                <p>
-                    Precise engraving for gifts, products, names and logos.
-                </p>
-            </div>
+            <div class="icon">👕</div>
 
-            <div class="card">
-                <div class="card-icon">🖨️</div>
-                <h3>3D Printing</h3>
-                <p>
-                    Bring digital designs into the real world with 3D printing.
-                </p>
-            </div>
+            <h3>
+                Custom T-Shirts
+            </h3>
 
-            <div class="card">
-                <div class="card-icon">🎁</div>
-                <h3>Personalized Gifts</h3>
-                <p>
-                    Create something completely unique for someone special.
-                </p>
-            </div>
+            <p>
+                Create your own designs, logos,
+                graphics and personalized clothing.
+            </p>
 
         </div>
 
-    </section>
 
-    <!-- HOW IT WORKS -->
+        <div class="card">
 
-    <section id="how">
+            <div class="icon">🏆</div>
 
-        <h2 class="section-title">How It Works</h2>
+            <h3>
+                Custom Jerseys
+            </h3>
 
-        <div class="steps">
-
-            <div class="step">
-                <div class="number">1</div>
-                <h3>Share Your Idea</h3>
-                <p>Tell us what you want to create.</p>
-            </div>
-
-            <div class="step">
-                <div class="number">2</div>
-                <h3>We Design</h3>
-                <p>We turn your idea into a design.</p>
-            </div>
-
-            <div class="step">
-                <div class="number">3</div>
-                <h3>We Forge</h3>
-                <p>We manufacture your custom product.</p>
-            </div>
-
-            <div class="step">
-                <div class="number">4</div>
-                <h3>You Receive</h3>
-                <p>Your idea becomes something real.</p>
-            </div>
+            <p>
+                Team jerseys designed with your
+                colours, name, number and style.
+            </p>
 
         </div>
 
-    </section>
 
-    <!-- CTA -->
+        <div class="card">
 
-    <section class="cta" id="contact">
+            <div class="icon">💎</div>
 
-        <h2>Have An Idea?</h2>
+            <h3>
+                Custom Jewellery
+            </h3>
 
-        <p>
-            Don't just imagine it. Let's make it real.
-        </p>
+            <p>
+                Unique pieces created around
+                your personal ideas and designs.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">☕</div>
+
+            <h3>
+                Custom Mugs
+            </h3>
+
+            <p>
+                Personalized mugs for gifts,
+                memories, teams and businesses.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🖼️</div>
+
+            <h3>
+                Photo Frames
+            </h3>
+
+            <p>
+                Turn your favourite memories
+                into personalized keepsakes.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔑</div>
+
+            <h3>
+                Keychains
+            </h3>
+
+            <p>
+                Names, logos, shapes and designs
+                turned into custom keychains.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔥</div>
+
+            <h3>
+                Laser Engraving
+            </h3>
+
+            <p>
+                Precision engraving for names,
+                logos, gifts and special designs.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🖨️</div>
+
+            <h3>
+                3D Printing
+            </h3>
+
+            <p>
+                Turn digital ideas and models
+                into physical 3D creations.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURE
+========================= -->
+
+<section>
+
+    <div class="feature">
+
+        <div class="feature-box">
+
+            <h3>
+                Your Idea.
+                Your Design.
+                Your Product.
+            </h3>
+
+            <p>
+                You don't have to choose from boring
+                ready-made products. Tell us what you
+                imagine and we'll work towards turning
+                that idea into reality.
+            </p>
+
+            <br>
+
+            <a href="#order"
+               class="button primary">
+                Create Something
+            </a>
+
+        </div>
+
+
+        <div class="feature-box">
+
+            <h3>
+                Built Different.
+            </h3>
+
+            <p>
+                Dream Forge combines creativity,
+                modern manufacturing and personalization
+                to create products that actually feel
+                like yours.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section id="how">
+
+    <h2 class="section-title">
+        How It Works
+    </h2>
+
+    <p class="section-subtitle">
+        From imagination to reality in four simple steps.
+    </p>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="number">
+                01
+            </div>
+
+            <h3>
+                Share Your Idea
+            </h3>
+
+            <p>
+                Tell us what you want to create.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                02
+            </div>
+
+            <h3>
+                We Design
+            </h3>
+
+            <p>
+                We turn your concept into a design.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                03
+            </div>
+
+            <h3>
+                We Forge
+            </h3>
+
+            <p>
+                Your product is created and customized.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                04
+            </div>
+
+            <h3>
+                You Receive
+            </h3>
+
+            <p>
+                Your idea becomes something real.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CUSTOM ORDER
+========================= -->
+
+<section class="order" id="order">
+
+    <h2>
+        Have an Idea?
+    </h2>
+
+    <p>
+        Don't just imagine it.
+        Tell Dream Forge what you're thinking
+        and let's turn it into something real.
+    </p>
+
+    <div class="buttons">
 
         <a
-            href="https://wa.me/919999999999"
-            class="button"
-            target="_blank">
-            Get a Quote
+            href="https://wa.me/919999999999?text=Hi%20Dream%20Forge!%20I%20have%20an%20idea%20for%20a%20custom%20product."
+            target="_blank"
+            class="button primary">
+
+            💬 Get a Quote on WhatsApp
+
         </a>
 
-    </section>
+    </div>
 
-    <footer>
-        © 2026 <span>Dream Forge</span> — You Dream It. We Forge It.
-    </footer>
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026
+    <strong>DREAM FORGE</strong>
+
+    <br><br>
+
+    You Dream It. We Forge It.
+
+</footer>
+
 
 </body>
 </html>
